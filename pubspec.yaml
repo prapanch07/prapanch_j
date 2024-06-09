@@ -1,0 +1,54 @@
+name: prapanch_j
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.4.0-282.3.beta <4.0.0'
+
+assets:
+  - assets/programmer.gif
+  - assets/gmail.png
+  - assets/linkedin.png 
+  - assets/github.png 
+  - assets/syncinterns.png 
+  - assets/brototype.png  
+  - assets/brototype.jpg 
+  - assets/expandicon.png  
+  - assets/flutter.png   
+  - assets/firebase.png   
+  - assets/html.png   
+  - assets/js.png   
+  - assets/nodejs.png 
+  - assets/css.png   
+  - assets/streamlit.png   
+  - assets/figma.png    
+
+
+  - assets/c.png   
+  - assets/python.png   
+
+
+
+
+
+  
+
+
+  
+
+ 
+dependencies:  
+  flutter:
+    sdk: flutter
+  gap: ^3.0.1
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+ 
+flutter:
+  uses-material-design: true
