@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:prapanch_j/screens/explore_works.dart';
 import 'package:prapanch_j/utils/colours.dart';
 import 'package:prapanch_j/utils/constants.dart';
-import 'package:prapanch_j/widgets/contact_me.dart';
 import 'package:prapanch_j/widgets/sections/about_me_section.dart';
 import 'package:prapanch_j/widgets/button.dart';
 import 'package:prapanch_j/widgets/circle_avatar.dart';
@@ -119,23 +118,23 @@ class HomeScreen extends StatelessWidget {
                           const ProgramingImageSection(),
                           Gap(_size.height / 4),
                           ExperienceSection(screentype: screentype),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.start,
-                          //   children: [
-                          //     CustomIconButton(
-                          //       function: () => _launchUrl(linkdinurl),
-                          //       imgurl: linkedin,
-                          //     ),
-                          //     CustomIconButton(
-                          //       function: () => _launchUrl(githuburl),
-                          //       imgurl: github,
-                          //     ),
-                          //     CustomIconButton(
-                          //       function: () => _launchUrl(mailtourl),
-                          //       imgurl: gmail,
-                          //     ),
-                          //   ],
-                          // ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomIconButton(
+                                function: () => _launchUrl(linkdinurl),
+                                imgurl: linkedin,
+                              ),
+                              CustomIconButton(
+                                function: () => _launchUrl(githuburl),
+                                imgurl: github,
+                              ),
+                              CustomIconButton(
+                                function: () => _launchUrl(mailtourl),
+                                imgurl: gmail,
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ],
@@ -181,13 +180,6 @@ class HomeScreen extends StatelessWidget {
                     CustomCircleAvatar(iconimg: figma),
                     CustomCircleAvatar(iconimg: cprog),
                   ],
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 35,
-                    vertical: 100,
-                  ),
-                  child: ContactMe(),
                 ),
                 const Gap(200),
                 Text(
