@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prapanch_j/screens/home.dart';
-import 'package:prapanch_j/screens/test_screen.dart';
+import 'package:prapanch_j/layout/test_screen.dart';
+import 'package:prapanch_j/screens/tab_screen.dart';
 
 class CustomLayoutBuilder extends StatelessWidget {
   const CustomLayoutBuilder({super.key});
@@ -13,28 +14,26 @@ class CustomLayoutBuilder extends StatelessWidget {
         // if (maxwidth >= 320 && maxwidth <= 480) {
         // oreinetation check
         if (maxwidth >= 320 && maxwidth <= 768) {
-          return const TestScreen(
-            text: "mobile",
-          );
+          return const TabScreenView(screenType: "tab");
         } else if (maxwidth >= 768 && maxwidth <= 1023) {
-          return const TestScreen(
-            text: "tab",
-          );
+          return const TabScreenView(screenType: "tab");
         } else if (maxwidth >= 1023 && maxwidth <= 1280) {
-          return const TestScreen(
-            text: "small pc",
+          return const HomeScreen(
+            screentype: "small",
           );
         } else if (maxwidth >= 1280 && maxwidth <= 1440) {
-          return const TestScreen(
-            text: "medium pc",
+          return const HomeScreen(
+            screentype: "medium",
           );
         }
-        if (maxwidth >= 1440) {
-          return const HomeScreen();
+        if (maxwidth >= 1440) { 
+          return const HomeScreen(
+            screentype: "large",
+          );
         } else {
           return const TestScreen(
             text: "default",
-          ); 
+          );
         }
       },
     );

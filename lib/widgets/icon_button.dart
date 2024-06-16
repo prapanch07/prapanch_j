@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prapanch_j/utils/colours.dart';
 
 class CustomIconButton extends StatelessWidget {
+  final screentype;
   final VoidCallback function;
   final String imgurl;
 
@@ -9,6 +10,7 @@ class CustomIconButton extends StatelessWidget {
     super.key,
     required this.function,
     required this.imgurl,
+    this.screentype,
   });
 
   @override
@@ -19,10 +21,10 @@ class CustomIconButton extends StatelessWidget {
       child: IconButton(
         onPressed: function,
         icon: Image(
-          height: _size.width / 40 - 8,
-          width: _size.width / 40 - 8,
+          height: screentype != "tab" ? _size.width / 40 - 8 : 40,
+          width: screentype != "tab" ? _size.width / 40 - 8 : 40,
           color: iconcolor,
-          image: NetworkImage(imgurl),
+          image: NetworkImage(imgurl), 
         ),
       ),
     );

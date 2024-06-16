@@ -5,7 +5,9 @@ import 'package:prapanch_j/utils/colours.dart';
 class CustomButton extends StatefulWidget {
   final VoidCallback onTap;
   final String text;
-  const CustomButton({super.key, required this.onTap, required this.text});
+  final screentype;
+  const CustomButton(
+      {super.key, required this.onTap, required this.text, this.screentype});
 
   @override
   State<CustomButton> createState() => _BouncingButtonState();
@@ -57,7 +59,7 @@ class _BouncingButtonState extends State<CustomButton>
           ),
           child: Container(
             height: 38,
-            width: 150,
+            width: widget.screentype != "tab" ? 150 : 100,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
@@ -67,7 +69,7 @@ class _BouncingButtonState extends State<CustomButton>
             child: Text(
               widget.text,
               style: GoogleFonts.montserrat(
-                fontSize: 18,
+                fontSize: widget.screentype != "tab" ? 18 : 12,
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
               ),
