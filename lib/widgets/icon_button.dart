@@ -24,7 +24,10 @@ class CustomIconButton extends StatelessWidget {
           height: screentype != "tab" ? _size.width / 40 - 8 : 40,
           width: screentype != "tab" ? _size.width / 40 - 8 : 40,
           color: iconcolor,
-          image: NetworkImage(imgurl), 
+          fit: BoxFit.cover,
+          image: NetworkImage(
+            imgurl,
+          ), 
         ),
       ),
     );

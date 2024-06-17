@@ -11,25 +11,28 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
           CustomListTile(
             title: "casamedia",
             subtitle: "Flutter Developer Intern",
             leadingicon: brototype,
+            url: casamediaurl,
             screenType: screentype,
           ),
-          CustomListTile(
+          CustomListTile( 
             title: "Sync Interns",
             subtitle: "Web Developer Intern",
             leadingicon: syncinterns,
+            url: syncinternsurl,
             screenType: screentype,
           ),
           CustomListTile(
             title: "Brototype",
             subtitle: "Campus Ambassedor",
             leadingicon: brototype,
+            url: brototypeurl,
             screenType: screentype,
           ),
         ],

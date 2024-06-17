@@ -8,7 +8,7 @@ import 'package:prapanch_j/widgets/button.dart';
 import 'package:prapanch_j/widgets/circle_avatar.dart';
 import 'package:prapanch_j/widgets/contact_me.dart';
 import 'package:prapanch_j/widgets/sections/about_me_section.dart';
-import 'package:prapanch_j/widgets/sections/experience_contactme.dart';
+import 'package:prapanch_j/widgets/sections/experience.dart';
 import 'package:prapanch_j/widgets/sections/frontpage_text.dart';
 import 'package:prapanch_j/widgets/sections/programming_image_section.dart';
 
@@ -39,7 +39,7 @@ class TabScreenView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomButton(
-              onTap: () {},
+              url: resumeurl,
               text: "Resume",
               screentype: screenType,
             ),
@@ -54,7 +54,7 @@ class TabScreenView extends StatelessWidget {
             ),
             const Gap(50),
             CustomButton(
-              onTap: () {},
+              url: linkdinurl,
               text: "Let's Connect",
               screentype: screenType,
             ),
@@ -182,7 +182,9 @@ class TabScreenView extends StatelessWidget {
   void _navigateToExploreWork(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const ExploreWorkScreen(),
+        builder: (context) => ExploreWorkScreen(
+          screentype: screenType,
+        ),
       ),
     );
   }

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prapanch_j/utils/colours.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomButton extends StatefulWidget {
-  final VoidCallback onTap;
+  final String url;
   final String text;
   final screentype;
   const CustomButton(
-      {super.key, required this.onTap, required this.text, this.screentype});
+      {super.key, required this.text, this.screentype, required this.url});
 
   @override
   State<CustomButton> createState() => _BouncingButtonState();
@@ -35,6 +36,13 @@ class _BouncingButtonState extends State<CustomButton>
     super.dispose();
   }
 
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw "error";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -42,12 +50,15 @@ class _BouncingButtonState extends State<CustomButton>
         _controller.forward().then((_) {
           _controller.reverse();
         });
-        widget.onTap();
+        Future.delayed(
+          const Duration(milliseconds: 100),
+          () => _launchUrl(widget.url),
+        );
       },
       child: ScaleTransition(
         scale: _tween.animate(
           CurvedAnimation(
-            parent: _controller,
+            parent: _controller, 
             curve: Curves.easeOut,
             reverseCurve: Curves.easeIn,
           ),

@@ -36,15 +36,18 @@ class ContactMe extends StatelessWidget {
                 color: blackcolor,
               ),
             ),
-            Text(
-              'prapanchappuse789@gmail.com',
-              style: GoogleFonts.montserrat(
-                fontSize: 13,
-                fontWeight: FontWeight.bold,
-                color: secondaryColor,
-                decoration: TextDecoration.underline,
-                decorationColor: secondaryColorLowopacity,
-                decorationThickness: 2,
+            InkWell(
+              onTap: () => _launchUrl(mailtourl),
+              child: Text(
+                'prapanchappuse789@gmail.com',
+                style: GoogleFonts.montserrat(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  color: secondaryColor,
+                  decoration: TextDecoration.underline,
+                  decorationColor: secondaryColorLowopacity,
+                  decorationThickness: 2,
+                ),
               ),
             ),
             const Gap(20),
@@ -52,19 +55,19 @@ class ContactMe extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CustomIconButton(
+                  imgurl: linkedin,
                   screentype: screentype,
                   function: () => _launchUrl(linkdinurl),
-                  imgurl: linkedin,
                 ),
                 CustomIconButton(
+                  imgurl: github,
                   screentype: screentype,
                   function: () => _launchUrl(githuburl),
-                  imgurl: github,
                 ),
                 CustomIconButton(
+                  imgurl: twitter,
                   screentype: screentype,
-                  function: () => _launchUrl(mailtourl),
-                  imgurl: gmail,
+                  function: () => _launchUrl(twitterxurl),
                 ),
               ],
             ),

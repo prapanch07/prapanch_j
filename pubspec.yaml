@@ -9,36 +9,28 @@ environment:
 assets:
   - assets/programmer.gif
   - assets/gmail.png
-  - assets/linkedin.png 
-  - assets/github.png 
-  - assets/syncinterns.png 
-  - assets/brototype.png  
-  - assets/brototype.jpg 
-  - assets/expandicon.png  
-  - assets/flutter.png   
-  - assets/firebase.png   
-  - assets/html.png   
-  - assets/js.png   
-  - assets/nodejs.png 
-  - assets/css.png   
-  - assets/streamlit.png   
-  - assets/figma.png    
+  - assets/linkedin.png
+  - assets/github.png
+  - assets/syncinterns.png
+  - assets/brototype.png
+  - assets/brototype.jpg
+  - assets/expandicon.png
+  - assets/flutter.png
+  - assets/firebase.png
+  - assets/html.png
+  - assets/js.png
+  - assets/nodejs.png
+  - assets/css.png
+  - assets/streamlit.png
+  - assets/figma.png
+
+  - assets/c.png
+  - assets/python.png
+    
 
 
-  - assets/c.png   
-  - assets/python.png   
-
-
-
-
-
-  
-
-
-  
-
- 
-dependencies:  
+dependencies:
+  animated_text_kit: ^4.2.2
   flutter:
     sdk: flutter
   gap: ^3.0.1
@@ -49,6 +41,6 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
- 
+
 flutter:
   uses-material-design: true

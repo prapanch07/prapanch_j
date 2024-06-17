@@ -8,7 +8,7 @@ import 'package:prapanch_j/widgets/contact_me.dart';
 import 'package:prapanch_j/widgets/sections/about_me_section.dart';
 import 'package:prapanch_j/widgets/button.dart';
 import 'package:prapanch_j/widgets/circle_avatar.dart';
-import 'package:prapanch_j/widgets/sections/experience_contactme.dart';
+import 'package:prapanch_j/widgets/sections/experience.dart';
 import 'package:prapanch_j/widgets/sections/frontpage_text.dart';
 import 'package:prapanch_j/widgets/icon_button.dart';
 import 'package:prapanch_j/widgets/list_tile.dart';
@@ -61,8 +61,8 @@ class HomeScreen extends StatelessWidget {
                           const Gap(50),
 
                           // on click no animation seen check ,,, and add hover effect if neecessary
-                          CustomButton(
-                            onTap: () => _launchUrl(linkdinurl),
+                          const CustomButton(
+                            url: linkdinurl,
                             text: "Let's connect",
                           ),
                           const Gap(20),
@@ -70,8 +70,8 @@ class HomeScreen extends StatelessWidget {
                           Gap(_size.height / 2.6),
                           const AboutMe(),
                           const Gap(30),
-                          CustomButton(
-                            onTap: () => _launchUrl(resumeurl),
+                          const CustomButton(
+                            url: resumeurl,
                             text: 'My Resume',
                           ),
 
@@ -208,15 +208,10 @@ class HomeScreen extends StatelessWidget {
   void _navigateToExploreWork(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const ExploreWorkScreen(),
+        builder: (context) => ExploreWorkScreen(
+          screentype: screentype,
+        ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw "error";
-    }
   }
 }
