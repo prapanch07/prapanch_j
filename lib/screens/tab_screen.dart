@@ -18,7 +18,6 @@ class TabScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -50,7 +49,7 @@ class TabScreenView extends StatelessWidget {
         child: Column(
           children: [
             FrontPageText(
-              screentype: screenType,
+              screentype: screenType, 
             ),
             const Gap(50),
             CustomButton(
@@ -182,9 +181,7 @@ class TabScreenView extends StatelessWidget {
   void _navigateToExploreWork(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => ExploreWorkScreen(
-          screentype: screenType,
-        ),
+        builder: (context) => const ExploreWorkScreen(),
       ),
     );
   }

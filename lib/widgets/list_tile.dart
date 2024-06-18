@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prapanch_j/controller/url_controller.dart';
 import 'package:prapanch_j/utils/colours.dart';
 import 'package:prapanch_j/utils/constants.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
@@ -26,7 +26,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return InkWell(
-      onTap: () => _launchUrl(url),
+      onTap: () => UrlController().onLaunchUrl(url),
       child: SizedBox(
         height: 90,
         width: screenType != "tab" ? size.width / 2 - 360 : 600,
@@ -81,12 +81,5 @@ class CustomListTile extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw "error";
-    }
   }
 }

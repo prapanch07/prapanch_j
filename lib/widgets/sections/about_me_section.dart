@@ -4,18 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:prapanch_j/utils/colours.dart';
 
 class AboutMe extends StatelessWidget {
-  final screentype;
-  const AboutMe({super.key, this.screentype});
+  final String screentype;
+  const AboutMe({super.key, this.screentype = ''});
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.sizeOf(context);
+    final size = MediaQuery.sizeOf(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Container(
-        // color: Colors.yellow,
-        width: screentype != "tab" ? _size.width / 2 : double.infinity,
+      child: SizedBox(
+        width: screentype != "tab" ? size.width / 2 : double.infinity,
         child: Column(
           crossAxisAlignment: screentype != "tab"
               ? CrossAxisAlignment.start
@@ -24,7 +23,7 @@ class AboutMe extends StatelessWidget {
             Text(
               'About Me',
               style: GoogleFonts.montserrat(
-                fontSize: screentype != "tab" ? _size.width / 80 - 1 : 23,
+                fontSize: screentype != "tab" ? size.width / 80 - 1 : 23,
                 // fontSize: 23,
                 fontWeight: FontWeight.bold,
                 color: secondaryColor,
@@ -36,13 +35,13 @@ class AboutMe extends StatelessWidget {
               textAlign:
                   screentype != "tab" ? TextAlign.justify : TextAlign.justify,
               style: GoogleFonts.montserrat(
-                fontSize: screentype != "tab" ? _size.width / 80 - 4 : 20,
+                fontSize: screentype != "tab" ? size.width / 80 - 4 : 20,
                 // fontSize: 20,
                 fontWeight: FontWeight.w500,
                 color: blackcolor,
                 height: 1.5,
               ),
-            ), 
+            ),
           ],
         ),
       ),

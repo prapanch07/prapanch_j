@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:prapanch_j/utils/colours.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
-  final screentype;
+  final String screentype;
   final String iconimg;
-  const CustomCircleAvatar({super.key, required this.iconimg, this.screentype});
+  const CustomCircleAvatar(
+      {super.key, required this.iconimg, this.screentype = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class CustomCircleAvatar extends StatelessWidget {
         child: Image.network(
           iconimg,
           fit: BoxFit.contain,
-        ), 
+        ),
       ),
     );
   }

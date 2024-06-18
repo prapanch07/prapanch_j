@@ -23,63 +23,65 @@ class _CustomOutlineButtonState extends State<HoverButton> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        if (!isHover)
-          Container(
+    return Center(
+      child: Stack(
+        children: [
+          if (!isHover)
+            Container(
+              height: 35,
+              width: 144,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
             height: 35,
-            width: double.infinity,
+            width: _animatedWidth,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
               borderRadius: BorderRadius.circular(30),
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xffbc4e9c),
+                  Color(0xfff80759),
+                ],
+                begin: FractionalOffset(0.0, 0.0),
+                end: FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp,
+              ),
             ),
           ),
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          height: 35,
-          width: _animatedWidth,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            gradient: const LinearGradient(
-              colors: [
-                Color(0xffbc4e9c),
-                Color(0xfff80759),
-              ],
-              begin: FractionalOffset(0.0, 0.0),
-              end: FractionalOffset(1.0, 0.0),
-              stops: [0.0, 1.0],
-              tileMode: TileMode.clamp,
-            ),
-          ),
-        ),
-        InkWell(
-          onHover: (value) {
-            setState(() {
-              isHover = !isHover;
-              _animatedWidth = value ? widget.width ?? 900 : 0.0;
-            });
-          },
-          onTap: () {
-            setState(() => _animatedWidth = 250);
-            widget.onTap();
-          },
-          child: SizedBox(
-            height: 35,
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                widget.text,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: isHover
-                      ? Colors.white
-                      : widget.textColor ?? secondaryColor,
+          InkWell(
+            onHover: (value) {
+              setState(() { 
+                isHover = !isHover;
+                _animatedWidth = value ? widget.width ?? 144 : 0.0;
+              });
+            },
+            onTap: () {
+              setState(() => _animatedWidth = 250);
+              widget.onTap();
+            },
+            child: SizedBox(
+              height: 35, 
+              width: 144,
+              child: Center(
+                child: Text(
+                  widget.text,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: isHover
+                        ? Colors.white
+                        : widget.textColor ?? secondaryColor,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

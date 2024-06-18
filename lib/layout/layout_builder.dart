@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prapanch_j/screens/home.dart';
-import 'package:prapanch_j/layout/test_screen.dart';
 import 'package:prapanch_j/screens/tab_screen.dart';
 
 class CustomLayoutBuilder extends StatelessWidget {
@@ -26,14 +25,12 @@ class CustomLayoutBuilder extends StatelessWidget {
             screentype: "medium",
           );
         }
-        if (maxwidth >= 1440) { 
+        if (maxwidth >= 1440) {
           return const HomeScreen(
             screentype: "large",
           );
         } else {
-          return const TestScreen(
-            text: "default",
-          );
+          return const Text('');
         }
       },
     );

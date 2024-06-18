@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prapanch_j/utils/constants.dart';
-import 'package:prapanch_j/widgets/icon_button.dart';
 import 'package:prapanch_j/widgets/list_tile.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceSection extends StatelessWidget {
   final String screentype;
@@ -17,20 +15,20 @@ class ExperienceSection extends StatelessWidget {
           CustomListTile(
             title: "casamedia",
             subtitle: "Flutter Developer Intern",
-            leadingicon: brototype,
+            leadingicon: casamedia,
             url: casamediaurl,
             screenType: screentype,
           ),
-          CustomListTile( 
+          CustomListTile(
             title: "Sync Interns",
             subtitle: "Web Developer Intern",
             leadingicon: syncinterns,
             url: syncinternsurl,
             screenType: screentype,
           ),
-          CustomListTile(
+          CustomListTile( 
             title: "Brototype",
-            subtitle: "Campus Ambassedor",
+            subtitle: "Campus Ambassedor", 
             leadingicon: brototype,
             url: brototypeurl,
             screenType: screentype,
@@ -38,12 +36,5 @@ class ExperienceSection extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw "error";
-    }
   }
 }

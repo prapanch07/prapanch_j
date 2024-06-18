@@ -2,26 +2,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prapanch_j/controller/url_controller.dart';
 import 'package:prapanch_j/utils/colours.dart';
 import 'package:prapanch_j/utils/constants.dart';
-import 'package:prapanch_j/widgets/glass_effect_onhover.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:prapanch_j/widgets/hover_card_widget.dart';
 
 class ExploreWorkScreen extends StatelessWidget {
-  final String screentype;
-  const ExploreWorkScreen({super.key, required this.screentype});
+  const ExploreWorkScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Size _size = MediaQuery.sizeOf(context);
-    print(_size.width);
-
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: secondaryColor,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () => _navigateToPOP(context),
         ),
@@ -40,14 +36,12 @@ class ExploreWorkScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Text(
-                  "Welcome to my portfolio! Below, you'll find a showcase of my most recent projects and creative endeavors. Dive in to see the range of skills and cutting-edge techniques I've mastered.",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: secondaryColorLowopacity,
-                  ),
+              Text(
+                "Welcome to my portfolio! Below, you'll find a showcase of my most recent projects and creative endeavors. Dive in to see the range of skills and cutting-edge techniques I've mastered.",
+                style: GoogleFonts.montserrat(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: secondaryColorLowopacity,
                 ),
               ),
               const Gap(10),
@@ -73,7 +67,8 @@ class ExploreWorkScreen extends StatelessWidget {
                         decorationThickness: 2,
                       ),
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => _launchUrl(latestprojectsourcecode),
+                        ..onTap = () => UrlController()
+                            .onLaunchUrl(latestprojectsourcecode),
                     )
                   ],
                 ),
@@ -98,10 +93,8 @@ class ExploreWorkScreen extends StatelessWidget {
                   itemBuilder: (context, index) => HoverCardWidget(
                     image: frames[index],
                     title: titles[index],
-                    slogan: "When in Rome, do as the Romans do",
                     description: descriptions[index],
                     url: projecturls[index],
-                    screentype: screentype,
                   ),
                 ),
               ),
@@ -114,12 +107,5 @@ class ExploreWorkScreen extends StatelessWidget {
 
   void _navigateToPOP(BuildContext context) {
     Navigator.pop(context);
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw "error";
-    }
   }
 }
