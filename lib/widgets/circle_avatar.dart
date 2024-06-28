@@ -18,7 +18,7 @@ class CustomCircleAvatar extends StatelessWidget {
         child: Image.network(
           iconimg,
           fit: BoxFit.contain,
-        ),
+        ), 
       ),
     );
   }

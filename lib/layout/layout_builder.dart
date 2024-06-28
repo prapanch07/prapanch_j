@@ -8,6 +8,7 @@ class CustomLayoutBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
+      
       builder: (context, constraints) {
         final maxwidth = constraints.maxWidth;
         // if (maxwidth >= 320 && maxwidth <= 480) {

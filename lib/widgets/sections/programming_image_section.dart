@@ -14,7 +14,8 @@ class ProgramingImageSection extends StatelessWidget {
       fit: BoxFit.contain,
       image: const NetworkImage(
         programmerimage,
-      ),
+      ), 
     );
   }
 }
+ 

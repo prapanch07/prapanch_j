@@ -1,8 +1,9 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prapanch_j/controller/url_controller.dart';
 import 'package:prapanch_j/utils/colours.dart';
+import 'package:prapanch_j/utils/constants.dart';
 import 'package:prapanch_j/widgets/hover_button.dart';
 
 class HoverCardWidget extends StatefulWidget {
@@ -38,45 +39,76 @@ class _HoverCardWidgetState extends State<HoverCardWidget>
   );
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (event) => _controller.forward(),
-      onExit: (event) => _controller.reverse(),
-      child: ClipRRect(
-        clipBehavior: Clip.hardEdge,
-        child: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: NetworkImage(widget.image),
-                  fit: BoxFit.cover,
-                ),
+    final platform = detectPlatform(context);
+
+    return platform != TargetPlatform.android
+        ? MouseRegion(
+            onEnter: (event) => _controller.forward(),
+            onExit: (event) => _controller.reverse(),
+            child: ClipRRect(
+              clipBehavior: Clip.hardEdge,
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                        image: NetworkImage(widget.image),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SlideTransition(
+                    position: _animation,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: blackcolor.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: ClipRRect(
+                        clipBehavior: Clip.hardEdge,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: SlideContent(
+                            title: widget.title,
+                            description: widget.description,
+                            url: widget.url,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SlideTransition(
-              position: _animation,
-              child: Container(
+          )
+        : Stack(
+            children: [
+              Container(
                 decoration: BoxDecoration(
-                    color: blackcolor.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(15)),
-                child: ClipRRect(
-                  clipBehavior: Clip.hardEdge,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: SlideContent(
-                      title: widget.title,
-                      description: widget.description,
-                      url: widget.url,
-                    ),
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: NetworkImage(widget.image),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+              Container(
+                decoration: BoxDecoration(
+                  color: blackcolor.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: SlideContent(
+                    title: widget.title,
+                    description: widget.description,
+                    url: widget.url,
+                  ),
+                ),
+              ),
+            ],
+          );
   }
 }
 
@@ -115,6 +147,8 @@ class SlideContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final platform = detectPlatform(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -140,10 +174,28 @@ class SlideContent extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        HoverButton(
-          text: "Discover More",
-          onTap: () => UrlController().onLaunchUrl(url),
-        ),
+        platform != TargetPlatform.android
+            ? HoverButton(
+                text: "Discover More",
+                onTap: () => UrlController().onLaunchUrl(url),
+              )
+            : Center(
+                child: ElevatedButton(
+                  style: const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(secondaryColor),
+                  ),
+                  onPressed: () => UrlController().onLaunchUrl(url),
+                  child: Text(
+                    'Discover More',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: primaryColor,
+                    ),
+                  ),
+                ),
+              ),
+
         const Spacer(),
       ],
     );

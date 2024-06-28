@@ -11,27 +11,21 @@ class FrontPageText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    print(size.width);
     return screentype != "tab"
         ? Column(
             crossAxisAlignment: screentype == "tab"
                 ? CrossAxisAlignment.center
                 : CrossAxisAlignment.start,
             children: [
-              // Text(
-              //   'Hello there!',
-              //   style: GoogleFonts.montserrat(
-              //       color: secondaryColor,
-              //       fontSize: 25,
-              //       fontWeight: FontWeight.bold),
-              // ),
+             
               AnimatedTextStyle(
                 color: secondaryColor,
                 text: "Hello there!",
                 screentype: screentype,
                 fontSize: 25,
               ),
-              const Gap(50),
+              Gap(size.width / 50),
+
               Text(
                 "I'm a Software Engineer || Flutter developer || Freelancer",
                 style: GoogleFonts.montserrat(
@@ -40,46 +34,15 @@ class FrontPageText extends StatelessWidget {
                   color: greyshade,
                 ),
               ),
-              // Text(
-              //   "Crafting code to bring ideas to life...",
-              //   style: GoogleFonts.montserrat(
-              //     fontSize: screentype == "tab" ? 40 : size.width / 40 - 2,
-              //     fontWeight: FontWeight.bold,
-              //     color: secondaryColorLowopacity,
-              //   ),
-              // ),
+             
 
               AnimatedTextStyle(
                 color: secondaryColorLowopacity,
-                text: "Crafting code to bring ideas to life...",
+                text: "Crafting code to bring ideas to life...", 
                 fontSize: size.width / 40 - 2,
                 screentype: screentype,
               ),
-              // Text.rich(
-              //   TextSpan(
-              //     children: [
-              //       TextSpan(
-              //         text:
-              //             "Let's connect and create something extraordinary\n—make me an offer",
-              // style: GoogleFonts.montserrat(
-              //   fontSize:
-              //       screentype == "tab" ? 30 : size.width / 60 - 2,
-              //   fontWeight: FontWeight.bold,
-              //   color: greyshade,
-              // ),
-              //       ),
-              //       TextSpan(
-              //         text: " I can't refuse!",
-              //         style: GoogleFonts.montserrat(
-              //           fontSize:
-              //               screentype == "tab" ? 30 : size.width / 60 - 2,
-              //           fontWeight: FontWeight.bold,
-              //           color: secondaryColor,
-              //         ),
-              //       )
-              //     ],
-              //   ),
-              // ),
+             
 
               Text(
                 "Let's connect and create something extraordinary",
@@ -115,14 +78,7 @@ class FrontPageText extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Text(
-                //   'Hello there!',
-                //   textAlign: TextAlign.center,
-                //   style: GoogleFonts.montserrat(
-                //       color: secondaryColor,
-                //       fontSize: 25,
-                //       fontWeight: FontWeight.bold),
-                // ),
+        
 
                 AnimatedTextStyle(
                   color: secondaryColor,
@@ -140,47 +96,15 @@ class FrontPageText extends StatelessWidget {
                     color: greyshade,
                   ),
                 ),
-                // Text(
-                //   "Crafting code to bring ideas to life...",
-                //   textAlign: TextAlign.center,
-                //   style: GoogleFonts.montserrat(
-                //     fontSize: screentype == "tab" ? 40 : size.width / 40 - 2,
-                //     fontWeight: FontWeight.bold,
-                //     color: secondaryColorLowopacity,
-                //   ),
-                // ),
+           
                 AnimatedTextStyle(
                   color: secondaryColorLowopacity,
                   text: "Crafting code to bring ideas to life...",
                   fontSize: 40,
                   screentype: screentype,
                 ),
-                // Text.rich(
-                //   textAlign: TextAlign.center,
-                //   TextSpan(
-                //     children: [
-                //       TextSpan(
-                //         text:
-                //             "Let's connect and create something extraordinary\n—make me an offer",
-                //         style: GoogleFonts.montserrat(
-                //           fontSize:
-                //               screentype == "tab" ? 30 : size.width / 60 - 2,
-                //           fontWeight: FontWeight.bold,
-                //           color: greyshade,
-                //         ),
-                //       ),
-                //       TextSpan(
-                //         text: " I can't refuse!",
-                //         style: GoogleFonts.montserrat(
-                //           fontSize:
-                //               screentype == "tab" ? 30 : size.width / 60 - 2,
-                //           fontWeight: FontWeight.bold,
-                //           color: secondaryColor,
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // ),
+          
+   
                 Text(
                   "Let's connect and create something extraordinary",
                   textAlign: TextAlign.center,
@@ -200,7 +124,7 @@ class FrontPageText extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: greyshade,
                       ),
-                    ),  
+                    ),
                     AnimatedTextStyle(
                       color: secondaryColor,
                       text:

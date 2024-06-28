@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +13,7 @@ import 'package:prapanch_j/widgets/circle_avatar.dart';
 import 'package:prapanch_j/widgets/sections/experience.dart';
 import 'package:prapanch_j/widgets/sections/frontpage_text.dart';
 import 'package:prapanch_j/widgets/sections/programming_image_section.dart';
+import 'package:prapanch_j/widgets/silver_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   final String screentype;
@@ -19,26 +22,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.sizeOf(context);
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          toolbarHeight: 100,
-          centerTitle: false,
-          title: const Padding(
-            padding: EdgeInsets.all(23.0),
-            child: Text(
-              'JP',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-                color: secondaryColorLowopacity,
-              ),
-            ),
+
+    return Scaffold(
+      backgroundColor: primaryColor,
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
+            [
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 35),
+            sliver: CustomSilverAppbar(screentype: screentype),
           ),
-        ),
+        ],
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         const Gap(100),
                         const FrontPageText(),
-                        const Gap(50),
+                        Gap(size.width / 50 ),
                         const CustomButton(
                           url: linkdinurl,
                           text: "Let's connect",

@@ -26,8 +26,6 @@ assets:
 
   - assets/c.png
   - assets/python.png
-    
-
 
 dependencies:
   animated_text_kit: ^4.2.2
@@ -39,7 +37,7 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^3.0.0
-  flutter_test:
+  flutter_test: 
     sdk: flutter
 
 flutter:

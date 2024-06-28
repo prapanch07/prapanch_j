@@ -28,7 +28,7 @@ class CustomListTile extends StatelessWidget {
     return InkWell(
       onTap: () => UrlController().onLaunchUrl(url),
       child: SizedBox(
-        height: 90,
+        height: screenType != "tab" ? size.width / 21 + 3 : 70,
         width: screenType != "tab" ? size.width / 2 - 360 : 600,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -37,8 +37,8 @@ class CustomListTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image(
-                  height: screenType != "tab" ? size.width / 24 - 10 : 70,
-                  width: screenType != "tab" ? size.width / 24 - 10 : 70,
+                  height: screenType != "tab" ? size.width / 24 + 10 : 70,
+                  width: screenType != "tab" ? size.width / 24 + 10 : 70,
                   image: NetworkImage(leadingicon),
                 ),
                 Padding(
@@ -52,7 +52,7 @@ class CustomListTile extends StatelessWidget {
                         title,
                         style: GoogleFonts.montserrat(
                           fontSize:
-                              screenType != "tab" ? size.width / 80 - 2 : 22,
+                              screenType != "tab" ? size.width / 80 + 3 : 22,
                           fontWeight: FontWeight.bold,
                           color: blackcolor,
                         ),
@@ -61,7 +61,7 @@ class CustomListTile extends StatelessWidget {
                         subtitle,
                         style: GoogleFonts.montserrat(
                           fontSize:
-                              screenType != "tab" ? size.width / 80 - 9 : 15,
+                              screenType != "tab" ? size.width / 80 - 5 : 15,
                           fontWeight: FontWeight.bold,
                           color: secondaryColorLowopacity,
                         ),

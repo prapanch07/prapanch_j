@@ -33,18 +33,16 @@ class _AnimatedTextStyleState extends State<AnimatedTextStyle> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: AnimatedDefaultTextStyle(
-        style: GoogleFonts.montserrat(
-          fontSize: widget.fontSize,
-          fontWeight: FontWeight.bold,
-          color: color,
-        ),
-        duration: const Duration(milliseconds: 500),
-        child: Text(
-          widget.text,
-          textAlign: TextAlign.center,
-        ),
+    return AnimatedDefaultTextStyle(
+      style: GoogleFonts.montserrat(
+        fontSize: widget.fontSize,
+        fontWeight: FontWeight.bold,
+        color: color,
+      ),
+      duration: const Duration(milliseconds: 500),
+      child: Text(
+        widget.text,
+        textAlign: TextAlign.center,
       ),
     );
   }

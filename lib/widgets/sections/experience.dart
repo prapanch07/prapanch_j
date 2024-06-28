@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:prapanch_j/utils/constants.dart';
 import 'package:prapanch_j/widgets/list_tile.dart';
 
@@ -12,6 +13,7 @@ class ExperienceSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
+          const Gap(10),
           CustomListTile(
             title: "casamedia",
             subtitle: "Flutter Developer Intern",
@@ -19,6 +21,7 @@ class ExperienceSection extends StatelessWidget {
             url: casamediaurl,
             screenType: screentype,
           ),
+          const Gap(10),
           CustomListTile(
             title: "Sync Interns",
             subtitle: "Web Developer Intern",
@@ -26,9 +29,10 @@ class ExperienceSection extends StatelessWidget {
             url: syncinternsurl,
             screenType: screentype,
           ),
-          CustomListTile( 
+          const Gap(10),
+          CustomListTile(
             title: "Brototype",
-            subtitle: "Campus Ambassedor", 
+            subtitle: "Campus Ambassedor",
             leadingicon: brototype,
             url: brototypeurl,
             screenType: screentype,

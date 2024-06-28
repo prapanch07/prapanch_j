@@ -45,7 +45,7 @@ class _CustomOutlineButtonState extends State<HoverButton> {
                 colors: [
                   Color(0xffbc4e9c),
                   Color(0xfff80759),
-                ],
+                ], 
                 begin: FractionalOffset(0.0, 0.0),
                 end: FractionalOffset(1.0, 0.0),
                 stops: [0.0, 1.0],
